@@ -28,6 +28,7 @@ export abstract class DioAccount {
   }
 
   getBalance = (): number => {
+    console.log('Saldo na conta: %d ', this.balance)
     return this.balance
   }
 
@@ -35,17 +36,18 @@ export abstract class DioAccount {
     this.status = false
     console.log('Conta desativada!')
   }
-  
+
   activateAccount = (): void => {
     this.status = true
     console.log('Conta ativada!')
   }
 
-  private validateStatus = (): boolean => {
+  validateStatus = (): boolean => {
     if (this.status) {
       return this.status
     }
 
-    throw new Error('Conta inválida')
+    console.log('Conta inválida')
+    return false
   }
 }
